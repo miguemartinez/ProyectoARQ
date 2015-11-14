@@ -2,9 +2,9 @@
 include_once("db.php");
 include_once("Class.comercio.php");
 
-$comercio =new Comercio;
+$producto =new Comercio;
 $comercio.setNombre($_POST["nombre"]);
-$comercio.setdireccion($_POST["direccion"]);
+$producto.setPrecio($_POST["direccion"]);
 // aca iria el constructor con los parametros del post atroden
 
 

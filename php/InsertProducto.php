@@ -3,14 +3,14 @@ include_once("db.php");
 include_once("Class.Producto.php");
 
 $producto =new Producto;
-$comercio.setNombre($_POST["nombre"]);
-$comercio.setdireccion($_POST["direccion"]);
-// aca iria el constructor con los parametros del post atroden
+$producto.setNombre($_POST["nombre"]);
+$producto.setdireccion($_POST["direccion"]);
+
 
 
 try {
 	$stmt = $conn->prepare("INSERT INTO Comercio (nombre, direccion, correo) VALUES (?,?,?)");
-	$stmt->bind_param("sss", );//comercio get los datos
+	$stmt->bind_param("sss", $producto.getNombre(),$producto.getDireccion(), $producto.getCorreo );//comercio get los datos
 	$stmt->execute();
 	if (!$stmt)  {
 		throw new Exception("Error Processing Request", 1);
