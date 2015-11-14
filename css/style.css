@@ -24,7 +24,16 @@ body {
 	padding: 5px;
 	margin:10px;
 }
-
+.com{
+	min-height: 300px;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+.com-1{
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
 .menu a{
 	text-decoration: none;
 }
