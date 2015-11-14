@@ -3,9 +3,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <title>Insert title here</title>
 </head>
 <script src="js/jquery-2.1.4.js"></script>
+
+
 
 
 <body>
@@ -13,19 +16,21 @@
 		    <div class="header">
 			</div>
 			<div class="content"> No estas logueado.  
-			<a href="login.php"> Login</a>
+			<a href="#"> Login</a>
 			</div>
    	
 	    	<div class="footer">
 	    	</div>
+	    	<div id=modale></div>
 
 
 
-</body>
+	
 <script>
 $(document).ready(function() {	
 $(".footer").load("html/footer.html");
 $(".header").load("html/header.html");
+$("#modale").load("html/modalelogin.html");
 
 
 }); 
