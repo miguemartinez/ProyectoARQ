@@ -4,6 +4,7 @@ body {
 }
 
 .logo-container{
+	height: 110px;
 	width: 100%;
 	float: left;
 	background-color: rgba(32,150,131, 0.8);;
@@ -33,10 +34,9 @@ body {
 	text-align: right;
 }
 
-.footer{
-	margin-left: 10%;
+.content{
+	min-height: 400px;
 }
-
 .footer-div{
 	text-align: center;
 	float: left;
