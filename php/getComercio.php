@@ -2,6 +2,7 @@
 
 include_once("db.php");
 include_once("class.Comercio.php");
+error_reporting(0);
 	//if (is_ajax()) {
 	$comercios = array(4);
 	$cont=1;
@@ -15,16 +16,23 @@ include_once("class.Comercio.php");
 			$comercios[$cont].setNombre($row["Nombre"]);
 			$comercios[$cont].setDireccion($row["Direccion"]);
 			$comercios[$cont].setCorreo($row["Correo"]);
-	}
+			$cont=$cont+1;
+			}
 	$respuesta=$comercios;
 	} else {
-	$respuesta = array( 'idcomercio' => '0');
+	$respuesta = array( 'idcomercio' => '215');
 		
 	}
-	//header('Content-Type: application/json');
-	//echo json_encode($respuesta);
-	var_dump($respuesta);
-//}
+	//serialize($respuesta);
+	header('Content-Type: application/json');
+	echo json_encode($respuesta);
+	//var_dump($respuesta);
+	
+	
+	
+	
+
+
 
 function is_ajax() {
 	return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';

@@ -1,5 +1,23 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <form class="form-horizontal">
+<script src="js/jquery-2.1.4.js"></script>
+<script >
+$(document).ready(function() {	
+	var json_obj;
+	$.getJSON('php/getComercio.php', function(data) {
+	json_obj = data;
+	 $.each(data, function(i, field){
+         alert(field)
+     });
+      
+        
+    
+});
+})
+
+</script>
+
+
 
 
 <!-- Form Name -->
