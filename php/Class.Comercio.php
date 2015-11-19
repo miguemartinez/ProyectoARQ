@@ -6,7 +6,12 @@ class Comercio {
 	private $nombre;
 	private $direccion;
 	private $correo;
-	
+	private $foto;
+   public function show() {
+   		header('Content-Type: application/json');
+
+       echo json_encode( (get_object_vars($this)));
+    }
 	public function getIdcomercio() {
 		return $this->idcomercio;
 	}
@@ -35,6 +40,14 @@ class Comercio {
 		$this->correo = $correo;
 		return $this;
 	}
+	public function getFoto() {
+		return $this->foto;
+	}
+	public function setFoto($foto) {
+		$this->foto = $foto;
+		return $this;
+	}
+	
 	
 	
 }

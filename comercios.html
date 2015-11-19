@@ -3,15 +3,13 @@
 <script src="js/jquery-2.1.4.js"></script>
 <script >
 $(document).ready(function() {	
-	
 	var json_obj;
 	$.getJSON('php/getComercio.php', function(data) {
 	//json_obj =$.parseJSON(data);
 	 $.each(data, function(i, field){
 		 $.each(field , function ( k , v){
 		 
-			 $("#"+i+1).attr("src",v);
-			 alert(i+1)//http://stackoverflow.com/questions/11572569/jquery-selector-for-dynamic-id
+        $("#img1").html(v);
      });
       
         
@@ -28,14 +26,14 @@ $(document).ready(function() {
 <legend>Ultimos Comercios Adheridos</legend>
 <div class="com">
 <div class="com-1">
-	<img class="imgcom"id ="1"src="">
-	<p id ="nom1" >Nombre Comercio</p>
-	<p id ="des1">Descripcion descuento</p>
+	<img src="">
+	<p>Nombre Comercio</p>
+	<p>Descripcion descuento</p>
 
 </div>
 
 <div class="com-1">
-	<img class="imgcom"id ="2" src="">
+	<img src="">
 	<p>Nombre Comercio</p>
 	<p>Descripcion descuento</p>
 
@@ -43,15 +41,15 @@ $(document).ready(function() {
 </div>
 
 <div class="com">
-<div class="com-4">
-	<img class="imgcom" id ="3"src="">
+<div class="com-1">
+	<img src="">
 	<p>Nombre Comercio</p>
 	<p>Descripcion descuento</p>
 
 </div>
 
-<div class="com-4">
-	<img class="imgcom" id ="3"src="">
+<div class="com-1">
+	<img src="">
 	<p>Nombre Comercio</p>
 	<p>Descripcion descuento</p>
 

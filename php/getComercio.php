@@ -1,32 +1,45 @@
 <?php
 
 include_once("db.php");
-include_once("class.Comercio.php");
+include_once("Class.Comercio.php");
 error_reporting(0);
 	//if (is_ajax()) {
-	$comercios = array(4);
+	$respuesta= array();
 	$cont=1;
-	$sql = "SELECT top 4 * from comercios";
+	$sql = "select * from comercios limit 4;";
 	$rs = $conn->query($sql);
 	$numrows = $rs->num_rows;
+	header('Content-Type: application/json');
 	if ( $numrows > 0) {
+	echo "[";
 		while($row = $rs->fetch_assoc()) {
-			$comercios[$cont]= new Comercio();
-			$comercios[$cont].setIdcomercio($row["idcomercio"]);
-			$comercios[$cont].setNombre($row["Nombre"]);
-			$comercios[$cont].setDireccion($row["Direccion"]);
-			$comercios[$cont].setCorreo($row["Correo"]);
-			$cont=$cont+1;
+			if ($cont==256){
+				echo ",";
 			}
-	$respuesta=$comercios;
+
+			$comercio= new Comercio();
+			$comercio->setIdcomercio($row["idcomercio"]);
+			$comercio->setNombre($row["nombre"]);
+			$comercio->setDireccion($row["direccion"]);
+			$comercio->setCorreo($row["correo"]);
+			$comercio->setFoto($row["foto"]);
+			//array_push($respuesta, $comercio);
+			$cont=256;
+			$comercio->show();
+			}
+		echo "]";
+	//$respuesta = array( 'idcomercio' => 'tuvieja');
+	//var_dump(array_values($respuesta));
 	} else {
-	$respuesta = array( 'idcomercio' => '215');
+	$respuesta = array( 'idcomercio' => '0');
+
+	echo json_encode($respuesta);
 		
 	}
 	//serialize($respuesta);
-	header('Content-Type: application/json');
-	echo json_encode($respuesta);
-	//var_dump($respuesta);
+//	header('Content-Type: application/json');
+	//echo json_encode(array_values($respuesta));
+//	var_dump($rs);
 	
 	
 	
