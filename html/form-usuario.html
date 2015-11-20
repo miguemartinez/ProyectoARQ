@@ -1,18 +1,47 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["login"]["usuario"].value;
+    var a = document.forms["login"]["contrasenia"].value;
+    
+    
+    
+    if (x == ""){
+        document.getElementsByName("usuario")[0].setAttribute('style', "background-color: red;");
+        alert("complete usuario");
+       return false; 
+    }
+    if (a == "")
+    {
+      document.getElementsByName("contrasenia")[0].setAttribute('style', "background-color: red;");
+      alert("complete contraseña");
+      return false;
+    }
+    
+}
+
+function myFunction1(){
+  document.getElementsByName("usuario")[0].setAttribute('style', "background-color: white;");
+}
+function myFunction2(){
+  document.getElementsByName("contrasenia")[0].setAttribute('style', "background-color: white;");
+}
+
+</script>
+
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 <body>
 
-<form class="login">
+<form class="login" name="login" method="POST" action="" onsubmit="return validateForm()">
 
 <legend>Login</legend>
 
 <div class="form-group">
   <label class="user" for="usuario">Usuario</label>  
   <div class="col-md-4">
-  <input id="usuario" name="usuario" type="text" placeholder="Ingrese nombre usuario" class="form-control input-md" required="">
+  <input id="usuario" name="usuario" type="text" placeholder="Ingrese nombre usuario" class="form-control input-md" required="" onkeydown="myFunction1()">
     
   </div>
 </div>
@@ -21,7 +50,7 @@
 <div class="form-group" style="clear:both;">
   <label class="pass" for="contrasenia">Contraseña</label>
   <div class="col-md-4">
-    <input id="contrasenia" name="contrasenia" type="password" placeholder="Ingrese contraseña" class="form-control input-md" required="">
+    <input id="contrasenia" name="contrasenia" type="password" placeholder="Ingrese contraseña" class="form-control input-md" required="" onkeydown="myFunction2()">
     
   </div>
 </div>
@@ -30,7 +59,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="boton"></label>
   <div class="boton-2">
-    <button class="btn" id="boton" name="boton" class="botn">Entrar</button>
+    <button class="btn" id="boton" name="boton" class="botn" type="submit">Entrar</button>
   </div>
 </div>
 

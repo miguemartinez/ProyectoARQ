@@ -1,11 +1,47 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["login"]["Nombre"].value;
+    var a = document.forms["login"]["Direccion"].value;
+    var b = document.forms["login"]["correo"].value;
+    
+    
+    if (x == ""){
+        document.getElementsByName("Nombre")[0].setAttribute('style', "background-color: red;");
+        alert("complete Nombre");
+       return false; 
+    }
+    if (a == "")
+    {
+      document.getElementsByName("Direccion")[0].setAttribute('style', "background-color: red;");
+      alert("complete Direccion");
+      return false;
+    }
+    if (b == ""){
+      document.getElementsByName("Correo")[0].setAttribute('style', "background-color: red;");
+      alert("complete correo");
+      return false;
+    }
+
+}
+
+function myFunction1(){
+  document.getElementsByName("Nombre")[0].setAttribute('style', "background-color: white;");
+}
+function myFunction2(){
+  document.getElementsByName("Direccion")[0].setAttribute('style', "background-color: white;");
+}
+function myFunction3(){
+  document.getElementsByName("Correo")[0].setAttribute('style', "background-color: white;");
+}
+</script>
+
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
-<body>
 
-<form class="login">
+
+<form class="login" name="login" method="POST" action="" onsubmit="return validateForm()">
 
 
 <!-- Form Name -->
@@ -15,7 +51,7 @@
 <div class="form-group">
   <label class="col-md-3" for="Nombre">Nombre</label>  
   <div class="col-ins">
-  <input id="Nombre" name="Nombre" type="text" placeholder="Ingrese Nombre" class="form-control input-md">
+  <input id="Nombre" name="Nombre" type="text" placeholder="Ingrese Nombre" value="" class="form-control input-md" onkeydown="myFunction1()" >
     
   </div>
 </div>
@@ -24,7 +60,7 @@
 <div class="form-group">
   <label class="col-md-3" for="Direccion">Direccion</label>  
   <div class="col-ins">
-  <input id="Direccion" name="Direccion" type="text" placeholder="Ingrese direccion" class="form-control input-md">
+  <input id="Direccion" name="Direccion" type="text" placeholder="Ingrese direccion" class="form-control input-md" onkeydown="myFunction2()">
     
   </div>
 </div>
@@ -33,7 +69,7 @@
 <div class="form-group">
   <label class="col-md-3" for="correo">Correo</label>  
   <div class="col-ins">
-  <input id="correo" name="correo" type="text" placeholder="Ingrese correo" class="form-control input-md">
+  <input id="correo" name="correo" type="text" placeholder="Ingrese correo" class="form-control input-md" onkeydown="myFunction3()">
     
   </div>
 </div>
@@ -42,13 +78,13 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="enviar"></label>
   <div class="boton-1">
-    <button id="enviar" name="enviar" class="btn btn-success">Enviar</button>
-    <button id="reset" name="reset" class="btn btn-danger">Reset</button>
+    <button id="enviar" name="enviar" class="btn btn-success" type="submit">Enviar</button>
+    <button id="reset" name="reset" class="btn btn-danger" type="reset">Reset</button>
   </div>
 </div>
 
 
 </form>
 
-</body>
+
 </html>
