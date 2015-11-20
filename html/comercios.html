@@ -6,12 +6,26 @@ $(document).ready(function() {
 	
 	var json_obj;
 	$.getJSON('php/getComercio.php', function(data) {
-	//json_obj =$.parseJSON(data);
 	 $.each(data, function(i, field){
 		 $.each(field , function ( k , v){
-		 
-			 $("#"+i+1).attr("src",v);
-			 alert(i+1)//http://stackoverflow.com/questions/11572569/jquery-selector-for-dynamic-id
+			 var com='com'
+			var aux=i+1
+			 var x=document.getElementById(com.concat(aux));
+		 	if (k=='foto')
+		 	{
+		 	$(x).find("img")[0].setAttribute("src",v);
+			//http://stackoverflow.com/questions/11572569/jquery-selector-for-dynamic-id
+		 	}
+		 	else
+		 		{if (k=='nombre')
+		 			{
+		 			$('#nom'.concat(aux)).text(v);
+		 			}
+		 		else
+		 			{
+		 			// Aca deberia ir los productos
+		 			}
+		 		}
      });
       
         
@@ -27,33 +41,33 @@ $(document).ready(function() {
 <!-- Form Name -->
 <legend>Ultimos Comercios Adheridos</legend>
 <div class="com">
-<div class="com-1">
-	<img class="imgcom"id ="1"src="">
+<div id="com1"class="com-1">
+	<img class="imgcom"id ="img"src="">
 	<p id ="nom1" >Nombre Comercio</p>
 	<p id ="des1">Descripcion descuento</p>
 
 </div>
 
-<div class="com-1">
-	<img class="imgcom"id ="2" src="">
-	<p>Nombre Comercio</p>
-	<p>Descripcion descuento</p>
+<div id="com2"class="com-1">
+	<img class="imgcom"id ="img"src="">
+	<p id ="nom2" >Nombre Comercio</p>
+	<p id ="des2">Descripcion descuento</p>
 
 </div>
 </div>
 
 <div class="com">
-<div class="com-4">
-	<img class="imgcom" id ="3"src="">
-	<p>Nombre Comercio</p>
-	<p>Descripcion descuento</p>
+<div id="com3"class="com-1">
+	<img class="imgcom"id ="img"src="">
+	<p id ="nom3" >Nombre Comercio</p>
+	<p id ="des3">Descripcion descuento</p>
 
 </div>
 
-<div class="com-4">
-	<img class="imgcom" id ="3"src="">
-	<p>Nombre Comercio</p>
-	<p>Descripcion descuento</p>
+<div id="com4"class="com-1">
+	<img class="imgcom"id ="img"src="">
+	<p id ="nom4" >Nombre Comercio</p>
+	<p id ="des4">Descripcion descuento</p>
 
 </div>
 </div>

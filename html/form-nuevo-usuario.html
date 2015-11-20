@@ -1,11 +1,46 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["login"]["usuario"].value;
+    var a = document.forms["login"]["pass"].value;
+    var b = document.forms["login"]["mail"].value;
+     
+    if (x == ""){
+        document.getElementsByName("usuario")[0].setAttribute('style', "background-color: red;");
+        alert("complete usuario");
+       return false; 
+    }
+    if (a == "")
+    {
+      document.getElementsByName("pass")[0].setAttribute('style', "background-color: red;");
+      alert("complete Password");
+      return false;
+    }
+    if (b == ""){
+      document.getElementsByName("mail")[0].setAttribute('style', "background-color: red;");
+      alert("complete Mail");
+      return false;
+    }
+
+}
+
+function myFunction1(){
+  document.getElementsByName("usuario")[0].setAttribute('style', "background-color: white;");
+}
+function myFunction2(){
+  document.getElementsByName("pass")[0].setAttribute('style', "background-color: white;");
+}
+function myFunction3(){
+  document.getElementsByName("mail")[0].setAttribute('style', "background-color: white;");
+}
+</script>
+
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 <body>
 
-<form class="login">
+<form class="login" name="login" method="POST" action="form-nuevo-usuario.html" onsubmit="return validateForm()">
 
 
 <!-- Form Name -->
@@ -15,7 +50,7 @@
 <div class="form-group">
   <label class="col-md-3" for="usuario">Usuario</label>  
   <div class="col-ins">
-  <input id="usuario" name="usuario" type="text" placeholder="Ingrese usuario" class="form-control input-md">
+  <input id="usuario" name="usuario" type="text" placeholder="Ingrese usuario" class="form-control input-md" onkeydown="myFunction1()">
     
   </div>
 </div>
@@ -24,7 +59,7 @@
 <div class="form-group">
   <label class="col-md-3" for="pass">Password</label>
   <div class="col-ins">
-    <input id="pass" name="pass" type="password" placeholder="Ingrese contraseña" class="form-control input-md">
+    <input id="pass" name="pass" type="password" placeholder="Ingrese contraseña" class="form-control input-md" onkeydown="myFunction2()">
     
   </div>
 </div>
@@ -33,7 +68,7 @@
 <div class="form-group">
   <label class="col-md-3" for="pass">Repita Password</label>
   <div class="col-ins">
-    <input id="pass" name="pass" type="password" placeholder="Ingrese contraseña" class="form-control input-md">
+    <input id="pass" name="pass" type="password" placeholder="Ingrese contraseña" class="form-control input-md" onkeydown="myFunction2()">
     
   </div>
 </div>
@@ -42,7 +77,7 @@
 <div class="form-group">
   <label class="col-md-3" for="mail">Correo Electronico</label>  
   <div class="col-ins">
-  <input id="mail" name="mail" type="text" placeholder="Ingrese mail" class="form-control input-md">
+  <input id="mail" name="mail" type="text" placeholder="Ingrese mail" class="form-control input-md" onkeydown="myFunction3()">
     
   </div>
 </div>
@@ -51,8 +86,8 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1"></label>
   <div class="boton-1">
-    <button id="button1" name="button1" class="btn">Enviar</button>
-    <button id="button2" name="button2" class="btn">Reset</button>
+    <button id="button1" name="button1" class="btn" type="submit">Enviar</button>
+    <button id="button2" name="button2" class="btn" type="reset">Reset</button>
   </div>
 </div>
 
