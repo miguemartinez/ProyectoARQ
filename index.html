@@ -2,8 +2,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<title>Insert title here</title>
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/main.js"></script>
+<script src="js/modernizr.js"></script>
+<title>Sistema de descuentos de CAECE</title>
 </head>
 <script src="js/jquery-2.1.4.js"></script>
 
@@ -12,7 +18,7 @@
 
 <div class="main">
 
-		<div class="main">
+
 
 		    <div class="header">
 			</div>
@@ -23,9 +29,8 @@
 	    	</div>
 
 
-</div>
 
-	
+		<div id="modale"></div>
 
 	    </div>
 
@@ -35,13 +40,15 @@
 $(document).ready(function() {	
 $(".footer").load("html/footer.html");
 $(".header").load("html/header.html");
-
-
-//$("#modale").load("html/modalelogin.html");
+$("#modale").load("html/modalelogin.html");
 
 $(".content").load("html/comercios.html");
 
 }); 
+
+
+
+
 
 </script>
 </html>
