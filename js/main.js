@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+	alert("ctm");
 	var formModal = $('.cd-user-modal'),
 		formLogin = formModal.find('#cd-login'),
 		formSignup = formModal.find('#cd-signup'),
@@ -45,7 +46,7 @@ jQuery(document).ready(function($){
 			passwordField = togglePass.prev('input');
 		
 		( 'password' == passwordField.attr('type') ) ? passwordField.attr('type', 'text') : passwordField.attr('type', 'password');
-		( 'Hide' == togglePass.text() ) ? togglePass.text('Show') : togglePass.text('Hide');
+		( 'Ocultar' == togglePass.text() ) ? togglePass.text('Mostrar') : togglePass.text('Ocultar');
 		//focus and move cursor to the end of input field
 		passwordField.putCursorAtEnd();
 	});
@@ -87,44 +88,43 @@ jQuery(document).ready(function($){
 		formSignup.removeClass('is-selected');
 		formForgotPassword.addClass('is-selected');
 	}
-
-	//REMOVE THIS - it's just to show error messages 
 	formLogin.find('input[type="submit"]').on('click', function(event){
 		event.preventDefault();
 		formLogin.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
 	});
-	formSignup.find('input[type="submit"]').on('click', function(event){
+	formLogin.find('input[type="submit"]').on('click', function(event){
 		event.preventDefault();
-		formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+		alert("ctm");
 	});
-
-
-	//IE9 placeholder fallback
-	//credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
-	if(!Modernizr.input.placeholder){
-		$('[placeholder]').focus(function() {
-			var input = $(this);
-			if (input.val() == input.attr('placeholder')) {
-				input.val('');
-		  	}
-		}).blur(function() {
-		 	var input = $(this);
-		  	if (input.val() == '' || input.val() == input.attr('placeholder')) {
-				input.val(input.attr('placeholder'));
-		  	}
-		}).blur();
-		$('[placeholder]').parents('form').submit(function() {
-		  	$(this).find('[placeholder]').each(function() {
-				var input = $(this);
-				if (input.val() == input.attr('placeholder')) {
-			 		input.val('');
-				}
-		  	})
-		});
-	}
 
 });
 
+$( "#NuevoUser" ).submit(function( event ) {
+	  alert( "Handler for .submit() called." );
+	  event.preventDefault();
+	});
+
+$("#NuevoUser").click(function(event){
+	event.preventDefault();
+	alert("piola");
+	if ($("#accept-terms").prop("checked")){
+		alert("piola")
+	$.post("php/InsertComercio.php",
+			{nombre: $("#signup-username").val(), direccion: $("#signup-adress").val(), correo: $("#signup-email").val() },
+			function(data){
+				if (data.statusCode == 200) {
+					alert("piola")
+				}else {
+					alert("no piola")
+				}
+			}
+		);
+	}else{
+		alert("vendemela gil")
+		
+	}
+	//formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+});
 
 //credits http://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
 jQuery.fn.putCursorAtEnd = function() {

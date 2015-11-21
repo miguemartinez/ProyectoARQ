@@ -3,14 +3,16 @@ include_once("db.php");
 include_once("Class.comercio.php");
 
 $comercio =new Comercio();
-$comercio.setNombre($_POST["nombre"]);
-$comercio.setPrecio($_POST["direccion"]);
+$comercio->setNombre($_POST["nombre"]);
+$comercio->setPrecio($_POST["direccion"]);
+$comercio->setCorreo($_POST["correo"]);
+$comercio->setFoto("/img/nikey.jpg");
 // aca iria el constructor con los parametros del post atroden
 
 
 try {
-	$stmt = $conn->prepare("INSERT INTO Comercio (nombre, direccion, correo) VALUES (?,?,?)");
-	$stmt->bind_param("ssss", $descripcion,$precio, $stock, $stock_minimo);//comercio get los datos
+	$stmt = $conn->prepare("INSERT INTO Comercio (nombre, direccion, correo , foto) VALUES (?,?,?,?)");
+	$stmt->bind_param("ssss", $comercio->getNombre(),$comercio->getDireccion(),$comercio->getCorreo(), $comercio->getFoto());//comercio get los datos
 	$stmt->execute();
 	if (!$stmt)  {
 		throw new Exception("Error Processing Request", 1);
