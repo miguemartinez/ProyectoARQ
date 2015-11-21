@@ -22,7 +22,13 @@ ul
     list-style-type: none;
     text-align: center;
 }
+.fieldset-boton {
+ text-align: center;
+}
 
+.e-home, .cd-signin{
+  margin-right: 20px;
+}
 
 .logo-container{
 	border-style: solid;
