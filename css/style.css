@@ -13,6 +13,15 @@ input, textarea {
 input::-ms-clear, textarea::-ms-clear {
   display: none;
 }
+a {
+  color: #2f889a;
+  text-decoration: none;
+}
+ul
+{
+    list-style-type: none;
+    text-align: center;
+}
 
 
 .logo-container{
@@ -146,6 +155,24 @@ input::-ms-clear, textarea::-ms-clear {
 	min-width: 85px;
 }
 
+.main-nav ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.main-nav ul.is-visible {
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  -o-transform: translateY(50px);
+  transform: translateY(50px);
+}
 .col-ins {
 	margin-left: 170px;
 	}
@@ -305,7 +332,8 @@ hr {
   border-radius: 0.25em;
 }
 .cd-form input.full-width {
-  width: 89%;
+
+  width: 90%;
 }
 .cd-form input.has-padding {
   padding: 12px 20px 12px 50px;
