@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-	alert("ctm");
+	//alert("ctm");
 	var formModal = $('.cd-user-modal'),
 		formLogin = formModal.find('#cd-login'),
 		formSignup = formModal.find('#cd-signup'),
@@ -94,7 +94,7 @@ jQuery(document).ready(function($){
 	});
 	formLogin.find('input[type="submit"]').on('click', function(event){
 		event.preventDefault();
-		alert("ctm");
+		//alert("ctm");
 	});
 
 });
