@@ -6,7 +6,7 @@ error_reporting(0);
 	//if (is_ajax()) {
 	$respuesta= array();
 	$cont=1;
-	$sql = "select * from comercios limit 4;";
+	$sql = "select * from comercios order by fechains desc limit 4;";
 	$rs = $conn->query($sql);
 	$numrows = $rs->num_rows;
 	header('Content-Type: application/json');
