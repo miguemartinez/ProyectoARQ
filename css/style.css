@@ -125,6 +125,22 @@ ul
 	padding: 10px;
 	margin: auto;
 }
+.label-foto{
+  font-size: 16px;
+  font-family: "PT Sans", sans-serif;
+  color: grey;
+}
+.input-foto{
+  font-size: 18px;
+  font-family: "PT Sans", sans-serif;
+  color: grey;
+  border: 1px solid #d2d8d8;
+  padding: 16px 20px 16px 50px;
+  width: 90%;
+  border-radius: 0.25em;
+  margin: 0;
+
+}
 
 .col-md-4{
 	float: left;
