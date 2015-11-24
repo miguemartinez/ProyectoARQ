@@ -41,29 +41,29 @@
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form" enctype="multipart/form-data">
+				<form id="nuevoUser" class="cd-form" >
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Nombre</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Nombre">
+						<input class="full-width has-padding has-border" id="signup-username" name ="signup-username" type="text" placeholder="Nombre">
 						<span class="cd-error-message">Complete el campo !</span>
 					</p>
 					
 					
 					<p class="fieldset">
 						<label class="image-replace cd-adress" for="signup-adress">Direccion</label>
-						<input class="full-width has-padding has-border" id="signup-adress" type="text" placeholder="Direccion">
+						<input class="full-width has-padding has-border" id="signup-adress" name="signup-adress type="text" placeholder="Direccion">
 						<span class="cd-error-message">Complete el campo !</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+						<input class="full-width has-padding has-border" id="signup-email"  name="signup-email"type="email" placeholder="E-mail">
 						<span class="cd-error-message">Complete el campo !</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Contraseña</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Contraseña">
+						<input class="full-width has-padding has-border" id="signup-password" type="text"  name="signup-password" placeholder="Contraseña">
 						<a href="#0" class="hide-password">Hide</a>
 						<span class="cd-error-message">Complete el campo !</span>
 					</p>
@@ -71,7 +71,7 @@
 					<p class="fieldset">
 						<div class="input-foto">
 						<span class="label-foto">Foto</span>
-						<input id="Foto" name="Foto" class="" type="file" value="Foto"></input>
+						<input id="foto" name="foto" class="" type="file" value="Foto"></input>
 						<span class="cd-error-message">Complete el campo !</span>
 						</div>
 					</p>

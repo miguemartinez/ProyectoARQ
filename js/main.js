@@ -99,32 +99,30 @@ jQuery(document).ready(function($){
 
 });
 
-$( "#NuevoUser" ).submit(function( event ) {
-	  alert( "Handler for .submit() called." );
-	  event.preventDefault();
+$( "#nuevoUser" ).submit(function( event ) {
+	event.preventDefault();
+		 var formData = new FormData($(this)[0]);
+		if ($("#accept-terms").prop("checked")){
+			alert("acepstaste")
+			
+			  $.ajax({
+	    url: 'php/InsertComercio.php',
+	    type: 'POST',
+	    data: formData,
+	    async: false,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    	  success: function (returndata) {
+	    	      alert(returndata);
+	    	    }	
+		});
+		//formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+	};
+	return false;
 	});
 
-$("#NuevoUser").click(function(event){
-	event.preventDefault();
-	alert("piola");
-	if ($("#accept-terms").prop("checked")){
-		alert("piola")
-	$.post("php/InsertComercio.php",
-			{nombre: $("#signup-username").val(), direccion: $("#signup-adress").val(), correo: $("#signup-email").val() },
-			function(data){
-				if (data.statusCode == 200) {
-					alert("piola")
-				}else {
-					alert("no piola")
-				}
-			}
-		);
-	}else{
-		alert("vendemela gil")
 		
-	}
-	//formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-});
 
 //credits http://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
 jQuery.fn.putCursorAtEnd = function() {

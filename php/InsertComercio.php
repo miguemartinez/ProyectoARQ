@@ -1,20 +1,21 @@
 <?php
 include_once("db.php");
 include_once("Class.comercio.php");
-
+var_dump($_POST);
 $comercio =new Comercio();
 $target_dir = "../img/";
 $target_file = $target_dir . basename($_FILES["foto"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+echo  $target_file;
 move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
 $target_file="img/".$_FILES["foto"]["name"];
 
 
 
-$comercio->setNombre($_POST["nombre"]);
-$comercio->setDireccion($_POST["direccion"]);
-$comercio->setCorreo($_POST["correo"]);
+$comercio->setNombre($_POST["signup-username"]);
+$comercio->setDireccion($_POST["signup-adress"]);
+$comercio->setCorreo($_POST["signup-email"]);
 $comercio->setFoto($target_file);
 
 // aca iria el constructor con los parametros del post atroden
@@ -26,13 +27,13 @@ $comercio->setFoto($target_file);
 
 try {
 	$stmt = $conn->prepare("INSERT INTO Comercios (nombre, direccion, correo , foto, fechains) VALUES (?,?,?,?,NOW())");
-	$stmt->bind_param("ssss",$_POST["nombre"] ,$_POST["direccion"],$_POST["correo"],$target_file);//comercio get los datos
+	$stmt->bind_param("ssss",$_POST["signup-username"] ,$_POST["signup-adress"],$_POST["signup-email"],$target_file);//comercio get los datos
 	$stmt->execute();
 	if (!$stmt)  {
 		throw new Exception("Error Processing Request", 1);
 	}
 	if (!$conn->commit()) {
-		$respuesta = array( 'resp' => 'bad');
+		$respuesta = $_POST;
 		exit();
 	} else {
 		$respuesta = array( 'resp' => 'good');

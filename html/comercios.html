@@ -6,6 +6,9 @@ $(document).ready(function() {
 	
 	var json_obj;
 	$.getJSON('php/getComercio.php', function(data) {
+	//if ($.hasData(data)){
+		
+	
 	 $.each(data, function(i, field){
 		 $.each(field , function ( k , v){
 			 var com='com'
@@ -30,6 +33,7 @@ $(document).ready(function() {
       
         
 	 });
+	//}
 });
 })
 
