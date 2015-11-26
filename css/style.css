@@ -448,6 +448,27 @@ hr {
   -moz-transition: opacity 0.2s 0, visibility 0 0.2s;
   transition: opacity 0.2s 0, visibility 0 0.2s;
 }
+
+.cd-form .cd-noerror-message {
+  display: inline-block;
+  position: absolute;
+  left: -5px;
+  bottom: -35px;
+  background: green;
+  padding: .8em;
+  z-index: 2;
+  color: #FFF;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  border-radius: 0.25em;
+  /* prevent click and touch events */
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s 0, visibility 0 0.2s;
+  -moz-transition: opacity 0.2s 0, visibility 0 0.2s;
+  transition: opacity 0.2s 0, visibility 0 0.2s;
+}
 .cd-form .cd-error-message::after {
   /* triangle */
   content: '';
@@ -461,6 +482,14 @@ hr {
   border-bottom: 8px solid rgba(215, 102, 102, 0.9);
 }
 .cd-form .cd-error-message.is-visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.2s 0, visibility 0 0;
+  -moz-transition: opacity 0.2s 0, visibility 0 0;
+  transition: opacity 0.2s 0, visibility 0 0;
+}
+
+.cd-form .cd-noerror-message.is-visible {
   opacity: 1;
   visibility: visible;
   -webkit-transition: opacity 0.2s 0, visibility 0 0;

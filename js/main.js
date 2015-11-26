@@ -98,12 +98,19 @@ jQuery(document).ready(function($){
 	});
 
 });
+$("#accept-terms").click(function (){
+	//$("#response").toggleClass('cd-error-message');
+	if( $("#response").hasClass('is-visible')){
+		$("#response").toggleClass('is-visible');
+	}
+	//$("#response").html("");
+	
+});
 
 $( "#nuevoUser" ).submit(function( event ) {
 	event.preventDefault();
 		 var formData = new FormData($(this)[0]);
 		if ($("#accept-terms").prop("checked")){
-			alert("acepstaste")
 			
 			  $.ajax({
 	    url: 'php/InsertComercio.php',
@@ -113,12 +120,34 @@ $( "#nuevoUser" ).submit(function( event ) {
 	    cache: false,
 	    contentType: false,
 	    processData: false,
-	    	  success: function (returndata) {
-	    	      alert(returndata);
-	    	    }	
+	    statusCode: {
+	    200: function() {
+	    	if(! $("#response").hasClass('is-visible')){
+	    		
+    			$("#response").toggleClass('is-visible')
+    		
+    		}
+	    	$("#response").toggleClass('cd-error-message');
+			$("#response").toggleClass('cd-noerror-message');
+    		$("#response").html("Carga correcta , se recarga la home!");
+	    	setTimeout(function(){ 
+	    		
+	    		location.reload();
+	    		
+	    	}, 3000);
+	    	
+	       },
+	    400 :function(){
+	        alert("todo mal");
+	       }
+	     }
 		});
 		//formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	};
+	}else{
+		$("#response").toggleClass('is-visible');
+		//toggleClass('has-error')
+		$("#response").html("Dale , acepta que esta ok");
+	}
 	return false;
 	});
 

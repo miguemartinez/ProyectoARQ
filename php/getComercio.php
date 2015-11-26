@@ -28,8 +28,6 @@ error_reporting(0);
 			$comercio->show();
 			}
 		echo "]";
-	//$respuesta = array( 'idcomercio' => 'tuvieja');
-	//var_dump(array_values($respuesta));
 	} else {
 	$respuesta = array( 'idcomercio' => '0');
 

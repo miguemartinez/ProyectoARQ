@@ -1,13 +1,11 @@
 <?php
 include_once("db.php");
 include_once("Class.comercio.php");
-var_dump($_POST);
 $comercio =new Comercio();
 $target_dir = "../img/";
 $target_file = $target_dir . basename($_FILES["foto"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-echo  $target_file;
 move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
 $target_file="img/".$_FILES["foto"]["name"];
 
@@ -33,10 +31,10 @@ try {
 		throw new Exception("Error Processing Request", 1);
 	}
 	if (!$conn->commit()) {
-		$respuesta = $_POST;
+		$respuesta = array( 'statusCode' => '400');
 		exit();
 	} else {
-		$respuesta = array( 'resp' => 'good');
+		$respuesta = array( 'statusCode' => '200');
 	}
 	
 	header('Content-Type: application/json');
