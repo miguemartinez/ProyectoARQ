@@ -57,7 +57,6 @@ ul
 .title{
 	text-align: center;
 }
-
 .menu{
 	text-align: left;
 	padding: 5px;
@@ -68,6 +67,7 @@ ul
 	text-align: center;
 	width: 50%;
 	float: left;
+  margin-bottom: 30px;
 
 }
 .com-1{
@@ -99,7 +99,7 @@ ul
 	min-height: 400px;
 }
 .footer{
-	
+  clear: both;
 }
 .footer-1{
 	margin: auto; 
@@ -219,7 +219,7 @@ ul
 
 legend {
 	margin: auto;
-	color: white;
+  padding-top: 3px;
 }
 hr {
 	border-color: #30A68A;
