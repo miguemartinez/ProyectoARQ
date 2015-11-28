@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2015 a las 03:02:59
+-- Tiempo de generación: 28-11-2015 a las 01:39:16
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -32,18 +32,9 @@ CREATE TABLE IF NOT EXISTS `comercios` (
   `direccion` varchar(50) DEFAULT NULL,
   `correo` varchar(50) DEFAULT NULL,
   `foto` varchar(60) NOT NULL,
+  `fechains` date NOT NULL,
   PRIMARY KEY (`idcomercio`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Volcado de datos para la tabla `comercios`
---
-
-INSERT INTO `comercios` (`idcomercio`, `nombre`, `direccion`, `correo`, `foto`) VALUES
-(1, 'Nike', 'Av nike esquina nike', 'nikey@nikey.com.ar', 'img/nikey.jpg'),
-(2, 'Adidas', 'Por ahi', 'adidas@ucaecemdp.edu.ar', 'img/nikey.jpg'),
-(3, 'Puma', 'Cerca de lo de tu vieja', 'No se', 'img/nikey.jpg'),
-(4, 'no adidas', 'Que se yo', 'Pff', 'img/adi.jpeg');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=110 ;
 
 -- --------------------------------------------------------
 
@@ -59,6 +50,26 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `idcomercio` int(11) DEFAULT NULL,
   PRIMARY KEY (`idproducto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `username` varchar(20) NOT NULL,
+  `pass` varchar(20) NOT NULL,
+  `tipo` int(11) NOT NULL,
+  `idtipo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`username`, `pass`, `tipo`, `idtipo`) VALUES
+('juan', 'topu2', 1, 11);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
