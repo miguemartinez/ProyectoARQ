@@ -2,7 +2,7 @@
 
 include_once("db.php");
 include_once("Class.User.php");
-
+session_start();
 header('Content-Type: application/json');
 $user= new User();
 $user->setUsername($_POST["username"]);
@@ -19,7 +19,7 @@ if ( $numrows > 0) {
 	$row = $rs->fetch_assoc();
 		if ($row["pass"]==$user->getPassword()){
 			$respuesta = array( 'statusCode' => '200');
-			$_SESSION["user"] = serialize($user);
+			$_SESSION["user"] = serialize($_POST);
 	}else{
 			$respuesta = array( 'statusCode' => '500');
 		

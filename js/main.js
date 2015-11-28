@@ -167,7 +167,7 @@ $("#ingresar").submit( function(  ) {
 })
 
 
-$( "#nuevoUser" ).submit(function( event ) {
+/*$( "#nuevoUser" ).submit(function( event ) {
 	event.preventDefault();
 		 var formData = new FormData($(this)[0]);
 		if ($("#accept-terms").prop("checked")){
@@ -215,7 +215,83 @@ $( "#nuevoUser" ).submit(function( event ) {
 	return false;
 	
 
-});
+});*/
+
+
+$( "#nuevoUser" ).submit(function( event ) {
+	 event.preventDefault();
+	   var formData = new FormData($(this)[0]);
+	  if ($("#accept-terms").prop("checked")){
+	   if ($("#signup-username").val()!=""){
+	    if ($("#signup-adress").val()!=""){
+	     if ($("#signup-email").val()!=""){  
+	      if ($("#signup-password").val()!=""){
+	       if ($("#foto").val()!=""){
+
+	     $.ajax({
+	     url: 'php/InsertComercio.php',
+	     type: 'POST',
+	     data: formData,
+	     async: false,
+	     cache: false,
+	     contentType: false,
+	     processData: false,
+	     statusCode: {
+	     200: function() {
+	      if(! $("#response").hasClass('is-visible')){
+	       
+	       $("#response").toggleClass('is-visible')
+	      
+	      }
+	      $("#response").toggleClass('cd-error-message');
+	   $("#response").toggleClass('cd-noerror-message');
+	      $("#response").html("Carga correcta , se recarga la home!");
+	      setTimeout(function(){ 
+	       
+	       location.reload();
+	       
+	      }, 3000);
+	      
+	        },
+	     400 :function(){
+	         alert("todo mal");
+	        }
+	      }
+	  });
+	  //formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+	      }else{
+	       $("#response").toggleClass('is-visible');
+	       //toggleClass('has-error')
+	       $("#response").html("falta foto");
+	      }
+	     }else{
+	      $("#response").toggleClass('is-visible');
+	      //toggleClass('has-error')
+	      $("#response").html("pass no ingresado");
+	     }
+	    }else{
+	     $("#response").toggleClass('is-visible');
+	     //toggleClass('has-error')
+	     $("#response").html("email no ingresado");
+	    }  
+	   }else{
+	    $("#response").toggleClass('is-visible');
+	    //toggleClass('has-error')
+	    $("#response").html("direccion no ingresado");
+	   }
+	  }else{
+	   $("#response").toggleClass('is-visible');
+	   //toggleClass('has-error')
+	   $("#response").html("nombre no ingresado");
+	  }
+	 }else{
+	  $("#response").toggleClass('is-visible');
+	  //toggleClass('has-error')
+	  $("#response").html("Dale , acepta que esta ok");
+	 }
+
+	 return false;
+	 });
 
 });
 
