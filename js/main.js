@@ -96,8 +96,14 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 		//alert("ctm");
 	});
+	
+	$("#enviar").click(function (){
+		$("#ingresar").submit()
 
-});
+		
+	});
+
+
 $("#accept-terms").click(function (){
 	//$("#response").toggleClass('cd-error-message');
 	if( $("#response").hasClass('is-visible')){
@@ -107,11 +113,65 @@ $("#accept-terms").click(function (){
 	
 });
 
+
+
+
+$("#ingresar").submit( function(  ) {
+	//event.preventDefault();
+	 var formData = new FormData($(this)[0]);
+
+	// if (!$("#username").val() && !$("#password").val()){
+			
+ $.ajax({
+   url: 'php/login.php', // En realidad esto deberia apuntar a la controladora y dentro de la misma ver que onda , pero fue
+   type: 'POST',
+   data: formData,
+   async: false,
+   cache: false,
+   contentType: false,
+   processData: false,
+   success: function(data) {
+	   if (data.statusCode=='200'){
+		   if(!$("#responselogin").hasClass('is-visible')){
+	    		
+   			$("#responselogin").toggleClass('is-visible')
+   		
+   		}
+	    	$("#responselogin").toggleClass('cd-error-message');
+			$("#responselogin").toggleClass('cd-noerror-message');
+   		$("#responselogin").html("login correcta , redirigiendo a la home!");
+	    	setTimeout(function(){ 
+	    		
+	    		location.reload();
+	    		
+	    	}, 3000);
+	    	
+		 
+	   }else{
+
+		   $("#responselogin").toggleClass('is-visible');
+		   $("#responselogin").html("chequea los campos , que mandaste sanata");
+	}
+   
+   },
+ 	error :function (){
+ 	   $("#responselogin").toggleClass('is-visible');
+	   $("#responselogin").html("chequea los campos , que mandaste sanata");
+ 		
+ 	}
+	});
+	/* }else{
+		 alert("Completa los campitos");
+	 }*/return false;
+	
+})
+
+
 $( "#nuevoUser" ).submit(function( event ) {
 	event.preventDefault();
 		 var formData = new FormData($(this)[0]);
 		if ($("#accept-terms").prop("checked")){
-			
+				
 			  $.ajax({
 	    url: 'php/InsertComercio.php',
 	    type: 'POST',
@@ -129,7 +189,7 @@ $( "#nuevoUser" ).submit(function( event ) {
     		}
 	    	$("#response").toggleClass('cd-error-message');
 			$("#response").toggleClass('cd-noerror-message');
-    		$("#response").html("Carga correcta , se recarga la home!");
+    		$("#response").html("Carga correcta , redirigiendo a la home!");
 	    	setTimeout(function(){ 
 	    		
 	    		location.reload();
@@ -138,20 +198,26 @@ $( "#nuevoUser" ).submit(function( event ) {
 	    	
 	       },
 	    400 :function(){
-	        alert("todo mal");
+	    	$("#response").toggleClass('is-visible');
+	    	$("#response").html("Hubo terrible error maestrulli");
 	       }
 	     }
 		});
 		//formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	}else{
+	
+	
+			}else{
 		$("#response").toggleClass('is-visible');
 		//toggleClass('has-error')
-		$("#response").html("Dale , acepta que esta ok");
+		$("#response").html("Dale , acepta que no te la cobramos");
 	}
+			
 	return false;
-	});
+	
 
-		
+});
+
+});
 
 //credits http://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
 jQuery.fn.putCursorAtEnd = function() {
@@ -170,3 +236,5 @@ jQuery.fn.putCursorAtEnd = function() {
     	}
 	});
 };
+
+

@@ -7,40 +7,41 @@
 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
 			<ul class="cd-switcher">
-				<li><a href="#0" class="selected">Iniciar Sesion</a></li>
+				<li><a href="" class="selected">Iniciar Sesion</a></li>
 				<li><a href="#0">Nuevo Comercio</a></li>
 			</ul>
 
-			<div id="cd-login"> <!-- log in form -->
-				<form class="cd-form">
+			<div id="cd-login"> 
+				<form id="ingresar" class="cd-form">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">Nombre</label>
-						<input class="full-width has-padding has-border" id="signin-email" type="" placeholder="Nombre">
+						<input class="full-width has-padding has-border" id="username" name="username"type="text" placeholder="Nombre">
 						<span class="cd-error-message">Complete el campo !</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">Contraseña</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Contraseña">
+						<input class="full-width has-padding has-border" id="password" name="password" type="text"  placeholder="Contraseña">
 						<a href="#0" class="hide-password">Ocultar</a>
 						<span class="cd-error-message">Complete el campo !</span>
 					</p>
 
 					<p class="fieldset-boton">
-						<input type="checkbox" id="remember-me" checked>
+						<input type="checkbox" id="recordar" checked>
 						<label for="remember-me">Recordarme la proxima vez</label>
 					</p>
 
 					<p class="fieldset-boton">
-						<input class="full-width" type="submit" value="Login">
+						<input  class="full-width" id="enviar"type="submit" value="Login">
 					</p>
+					<span id="responselogin" class="cd-error-message">
 				</form>
 				
-				<p class="cd-form-bottom-message"><a href="#0">Olvidó la contraseña ?</a></p>
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div> <!-- cd-login -->
+				<p class="cd-form-bottom-message"><a href="">Olvidó la contraseña ?</a></p>
+				
+			</div> 
 
-			<div id="cd-signup"> <!-- sign up form -->
+			<div id="cd-signup"> 
 				<form id="nuevoUser" class="cd-form" >
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Nombre</label>

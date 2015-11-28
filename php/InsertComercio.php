@@ -31,7 +31,7 @@ try {
 		throw new Exception("Error Processing Request", 1);
 	}
 	if (!$conn->commit()) {
-		$respuesta = array( 'statusCode' => '400');
+		$respuesta = array( 'statusCode' => '500');
 		exit();
 	} else {
 		$respuesta = array( 'statusCode' => '200');
